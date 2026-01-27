@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>متجر تطبيقات أحمد رمضان</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-accent: #00d2ff;
+            --bg-dark: #0f172a;
+            --glass-bg: rgba(30, 41, 59, 0.7);
+            --card-bg: rgba(255, 255, 255, 0.03);
+            --text-color: #ffffff;
+            --border-color: rgba(255,255,255,0.1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Cairo', sans-serif; }
+        
+        body {
+            background-color: var(--bg-dark);
+            background-image: radial-gradient(circle at 50% 0%, rgba(0, 210, 255, 0.15), transparent 40%);
+            color: var(--text-color);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header & Nav (تم التحديث) */
+        header {
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .brand-container {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .brand { 
+            font-weight: 900; 
+            font-size: 1.4rem; 
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .brand i { color: var(--primary-accent); }
+        .brand-subtitle { font-size: 0.8rem; color: #aaa; margin-right: 32px; }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--text-color);
+            font-size: 0.9rem;
+            padding: 8px 20px;
+            border-radius: 20px;
+            border: 1px solid var(--primary-accent);
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(0, 210, 255, 0.05);
+        }
+        .nav-link:hover {
+            background: var(--primary-accent);
+            color: #000;
+            box-shadow: 0 0 15px var(--primary-accent);
+        }
+
+        /* Search Bar */
+        .search-wrapper {
+            margin: 40px auto 30px;
+            text-align: center;
+            padding: 0 20px;
+        }
+        .search-container {
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+        }
+        .search-input {
+            width: 100%;
+            padding: 18px 50px 18px 20px;
+            border-radius: 50px;
+            border: 2px solid var(--border-color);
+            background: rgba(0,0,0,0.3);
+            color: #fff;
+            font-size: 1.1rem;
+            outline: none;
+            transition: 0.3s;
+        }
+        .search-input:focus {
+            border-color: var(--primary-accent);
+            box-shadow: 0 0 20px rgba(0, 210, 255, 0.15);
+        }
+        .search-icon {
+            position: absolute;
+            right: 25px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #aaa;
+            font-size: 1.2rem;
+        }
+
+        /* Apps Grid */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+            flex: 1;
+            width: 100%;
+        }
+
+        .apps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 25px;
+            padding-bottom: 60px;
+        }
+
+        /* App Card */
+        .app-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 25px;
+            padding: 30px 20px;
+            text-align: center;
+            text-decoration: none;
+            color: #fff;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            backdrop-filter: blur(10px);
+        }
+
+        .app-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.08);
+            border-color: var(--primary-accent);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+        }
+
+        .card-icon {
+            width: 100px;
+            height: 100px;
+            border-radius: 22px;
+            margin-bottom: 20px;
+            object-fit: cover;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+            transition: 0.3s;
+            border: 2px solid rgba(255,255,255,0.05);
+        }
+        
+        .app-card:hover .card-icon { transform: scale(1.08) rotate(3deg); }
+
+        .card-title { font-size: 1.2rem; font-weight: 700; margin-bottom: 5px; color: #fff; }
+        .card-folder { font-size: 0.8rem; color: #888; margin-bottom: 20px; }
+
+        .btn-view {
+            margin-top: auto;
+            padding: 10px 30px;
+            border-radius: 20px;
+            background: rgba(255,255,255,0.05);
+            font-size: 0.9rem;
+            transition: 0.3s;
+            color: var(--primary-accent);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .app-card:hover .btn-view {
+            background: var(--primary-accent);
+            color: #000;
+            border-color: var(--primary-accent);
+        }
+
+        /* Empty State */
+        .no-results {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 60px;
+            color: #888;
+            display: none;
+            font-size: 1.2rem;
+        }
+
+        /* Footer (تم التحديث) */
+        footer {
+            margin-top: auto;
+            padding: 30px;
+            text-align: center;
+            border-top: 1px solid var(--border-color);
+            background: rgba(0,0,0,0.4);
+        }
+        .developer-link {
+            color: var(--primary-accent);
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        .developer-link:hover { text-shadow: 0 0 10px var(--primary-accent); }
+        
+        /* Mobile Adjustments */
+        @media (max-width: 600px) {
+            header { flex-direction: column; gap: 15px; text-align: center; }
+            .brand-container { align-items: center; }
+            .brand-subtitle { margin-right: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="brand-container">
+            <div class="brand">
+                <i class="fa-brands fa-google-play"></i> 
+                متجر تطبيقاتي
+            </div>
+            <span class="brand-subtitle">أحدث تطبيقات الأندرويد المطورة باحترافية</span>
+        </div>
+        
+        <a href="https://ahm3dramad3n.github.io/portfolio/en/" target="_blank" class="nav-link">
+            <i class="fa-solid fa-user-tie"></i>
+            <span>About Developer</span>
+        </a>
+    </header>
+
+    <div class="search-wrapper">
+        <div class="search-container">
+            <i class="fa-solid fa-search search-icon"></i>
+            <input type="text" id="searchInput" class="search-input" placeholder="ابحث عن اسم التطبيق...">
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="apps-grid" id="appsGrid">
+            </div>
+        <div class="no-results" id="noResults">
+            <i class="fa-regular fa-face-frown" style="font-size: 3rem; margin-bottom: 20px; display:block;"></i>
+            لا توجد تطبيقات تطابق بحثك
+        </div>
+    </div>
+
+    <footer>
+        <p>جميع الحقوق محفوظة © 2024 للمطور <strong>أحمد رمضان</strong></p>
+        <p style="margin-top: 10px; font-size: 0.9rem; opacity: 0.7;">
+            للتعرف على المزيد من أعمالي، تفضل بزيارة 
+            <a href="https://ahm3dramad3n.github.io/portfolio/en/" target="_blank" class="developer-link">معرض الأعمال (Portfolio)</a>
+        </p>
+    </footer>
+
+    <script>
+        // ==========================================
+        // 1. إعدادات المجلدات
+        // ==========================================
+        const appsList = [
+            { folder: "Crypto Messenger", name: "Crypto Messenger" },
+            { folder: "YouTube Web", name: "YouTube Web" },
+            { folder: "Simple Calculator", name: "Simple Calculator" },
+            { folder: "Online Games", name: "Online Games" },
+            { folder: "Tasbih", name: "Tasbih App" }
+        ];
+
+        // ==========================================
+        // 2. كود العرض الديناميكي
+        // ==========================================
+        const grid = document.getElementById('appsGrid');
+        const searchInput = document.getElementById('searchInput');
+        const noResults = document.getElementById('noResults');
+
+        function renderApps(filterText = '') {
+            grid.innerHTML = '';
+            let count = 0;
+
+            appsList.forEach(app => {
+                if (app.name.toLowerCase().includes(filterText.toLowerCase()) || 
+                    app.folder.toLowerCase().includes(filterText.toLowerCase())) {
+                    
+                    const card = document.createElement('a');
+                    card.className = 'app-card';
+                    card.href = `${app.folder}/index.html`; 
+                    
+                    // تحسين: إضافة fade-in animation عند الظهور
+                    card.style.animation = `fadeIn 0.5s ease forwards ${count * 0.1}s`;
+                    card.style.opacity = '0'; // Start invisible for animation
+                    
+                    card.innerHTML = `
+                        <img src="${app.folder}/icon.png" class="card-icon" alt="${app.name}" onerror="this.src='https://via.placeholder.com/150/333/fff?text=App'">
+                        <div class="card-title">${app.name}</div>
+                        <div class="card-folder">Version 1.0</div>
+                        <div class="btn-view">عرض التفاصيل</div>
+                    `;
+                    
+                    grid.appendChild(card);
+                    count++;
+                }
+            });
+
+            if (count === 0) {
+                noResults.style.display = 'block';
+            } else {
+                noResults.style.display = 'none';
+            }
+        }
+
+        // إضافة Keyframe للأنيميشن
+        const style = document.createElement('style');
+        style.innerHTML = `
+            @keyframes fadeIn {
+                from { opacity: 0; transform: translateY(20px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+        `;
+        document.head.appendChild(style);
+
+        searchInput.addEventListener('input', (e) => {
+            renderApps(e.target.value);
+        });
+
+        renderApps();
+    </script>
+</body>
+</html>
