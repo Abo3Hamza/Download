@@ -112,11 +112,7 @@
             overflow: hidden;
         }
 
-        /* Notches/Buttons decoration */
-        .phone-frame-container::before {
-            content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%);
-            width: 100px; height: 25px; background: #333; border-radius: 0 0 15px 15px; z-index: 10;
-        }
+      
 
         .slider-wrapper {
             width: 100%;
@@ -135,16 +131,15 @@
 
         .slide.active { opacity: 1; }
 
-        /* Slider Controls */
+          /* Slider Controls */
         .slider-btn {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            background: rgba(0,0,0,0.6);
-            color: #fff;
+            background: transparent; /* شلنا الخلفية السوداء */
+            color: var(--primary-color); /* خلينا السهم بلون التطبيق */
             border: none;
-            width: 40px; height: 40px;
-            border-radius: 50%;
+            font-size: 3rem; /* كبرنا السهم */
             cursor: pointer;
             z-index: 20;
             display: flex;
@@ -152,9 +147,20 @@
             justify-content: center;
             transition: 0.3s;
         }
-        .slider-btn:hover { background: var(--primary-color); }
-        .prev-btn { left: 10px; }
-        .next-btn { right: 10px; }
+        .slider-btn:hover { 
+            transform: translateY(-50%) scale(1.2); /* تكبير عند اللمس */
+            background: transparent; /* تأكيد عدم وجود خلفية */
+            text-shadow: 0 0 15px var(--primary-color); /* إضافة توهج */
+        }
+/* إبعاد الأسهم عن الموبيل */
+        .prev-btn { left: -60px; } /* خرجناه بره عالشمال */
+        .next-btn { right: -60px; } /* خرجناه بره عاليمين */
+
+        /* تحسين للموبيلات الصغيرة: نرجعهم جوه لو الشاشة ضيقة */
+        @media (max-width: 500px) {
+            .prev-btn { left: -10px; font-size: 2rem; }
+            .next-btn { right: -10px; font-size: 2rem; }
+        }
 
         /* External Controls (Optional specific Dots) */
         .dots {
@@ -249,12 +255,14 @@
             </a>
         </div>
 
-        <div class="phone-frame-container">
-            <div class="slider-wrapper" id="slider">
+        <div class="phone-display-wrapper" style="position: relative; width: fit-content; margin: 0 auto 50px;">
+            
+            <div class="phone-frame-container" style="margin: 0;"> <div class="slider-wrapper" id="slider">
+                    
                 <img src="screen1.jpg" class="slide active" alt="Screen 1">
                 <img src="screen2.jpg" class="slide" alt="Screen 2">
                 <img src="screen3.jpg" class="slide" alt="Screen 3">
-            </div>
+            </div> </div>
             
             <button class="slider-btn prev-btn" onclick="moveSlide(-1)">&#10094;</button>
             <button class="slider-btn next-btn" onclick="moveSlide(1)">&#10095;</button>
