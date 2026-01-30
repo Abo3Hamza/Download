@@ -35,7 +35,7 @@
     "type": "desktop",
     "description": "لعبة الثعبان الكلاسيكية مع رسومات محسنة وتجربة لعب سلسة على الكمبيوتر.",
     "downloadLink": "https://github.com/Abo3Hamza/Download/releases/download/Snake_Game/desktop.exe",
-    "screenshotsCount": 2,
+    "screenshotsCount": 3,
     "featuresCount": 4,
     "primaryColor": "#4CAF50",
     "features": [
@@ -66,7 +66,7 @@
     "type": "android",
     "description": "نسخة خفيفة ومحسنة من يوتيوب، تمنحك تجربة مشاهدة سلسة وتعمل كتطبيق مستقل بعيداً عن تعقيدات المتصفح.",
     "downloadLink": "https://github.com/Abo3Hamza/Download/releases/download/YouTube_Web/android.apk",
-    "screenshotsCount": 3,
+    "screenshotsCount": 4,
     "featuresCount": 3,
     "primaryColor": "#FF0000",
     "features": [
@@ -118,7 +118,7 @@
     "type": "android",
     "description": "مكتبة ألعاب ضخمة في تطبيق واحد! استمتع بمجموعة متنوعة من الألعاب الخفيفة والممتعة دون الحاجة لتحميل كل لعبة على حدة.",
     "downloadLink": "https://github.com/Abo3Hamza/Download/releases/download/Online_Games/android.apk",
-    "screenshotsCount": 4,
+    "screenshotsCount": 3,
     "featuresCount": 4,
     "primaryColor": "#9C27B0",
     "features": [
@@ -149,7 +149,7 @@
     "type": "android",
     "description": "مسبحة إلكترونية ذكية تساعدك على ذكر الله في أي وقت ومكان، مع ميزة حفظ العدد والاهتزاز للتنبيه.",
     "downloadLink": "https://github.com/Abo3Hamza/Download/releases/download/Tasbih/android.apk",
-    "screenshotsCount": 3,
+    "screenshotsCount": 5,
     "featuresCount": 3,
     "primaryColor": "#009688",
     "features": [
