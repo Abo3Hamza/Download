@@ -1,0 +1,198 @@
+:root {
+            --primary-accent: #00d2ff;
+            --bg-dark: #0f172a;
+            --glass-bg: rgba(30, 41, 59, 0.7);
+            --card-bg: rgba(255, 255, 255, 0.03);
+            --text-color: #ffffff;
+            --border-color: rgba(255,255,255,0.1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Cairo', sans-serif; }
+        
+        body {
+            background-color: var(--bg-dark);
+            background-image: radial-gradient(circle at 50% 0%, rgba(0, 210, 255, 0.1), transparent 50%);
+            color: var(--text-color);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header */
+        header {
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(15, 23, 42, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .brand-container { display: flex; flex-direction: column; }
+        .brand { font-weight: 900; font-size: 1.4rem; color: #fff; display: flex; align-items: center; gap: 10px; }
+        .brand i { color: var(--primary-accent); }
+        .brand-subtitle { font-size: 0.8rem; color: #aaa; margin-right: 32px; }
+
+        .nav-link {
+            text-decoration: none; color: var(--text-color); font-size: 0.9rem; padding: 8px 20px;
+            border-radius: 20px; border: 1px solid var(--primary-accent); transition: 0.3s;
+            display: flex; align-items: center; gap: 8px; background: rgba(0, 210, 255, 0.05);
+        }
+        .nav-link:hover { background: var(--primary-accent); color: #000; box-shadow: 0 0 15px var(--primary-accent); }
+
+        /* =========================================
+           Controls Layout (Filter + Search)
+           ========================================= */
+        .controls-wrapper {
+            max-width: 900px;
+            margin: 40px auto 30px;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            position: relative;
+            width: 100%;
+        }
+
+        /* 1. Filter Button & Menu */
+        .filter-container { position: relative; }
+
+        .filter-toggle-btn {
+            width: 55px; height: 55px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-color);
+            color: #fff; font-size: 1.2rem;
+            cursor: pointer; transition: 0.3s;
+            display: flex; align-items: center; justify-content: center;
+        }
+        
+        .filter-toggle-btn:hover, .filter-toggle-btn.active {
+            background: var(--primary-accent);
+            color: #000;
+            box-shadow: 0 0 15px var(--primary-accent);
+            transform: rotate(90deg);
+        }
+
+        /* Popup Menu */
+        .filter-menu {
+            position: absolute;
+            top: 70px;
+            right: 0; /* يفتح جهة اليمين (تحت الزر) */
+            width: 220px;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(15px);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 15px;
+            display: none;
+            flex-direction: column;
+            gap: 8px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+            z-index: 200;
+            transform-origin: top right;
+            animation: menuPop 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .filter-menu.show { display: flex; }
+
+        @keyframes menuPop {
+            from { opacity: 0; transform: scale(0.8) translateY(-10px); }
+            to { opacity: 1; transform: scale(1) translateY(0); }
+        }
+
+        .filter-header { font-size: 0.85rem; color: #aaa; margin-bottom: 5px; padding-right: 5px; }
+
+        .filter-option {
+            display: flex; justify-content: space-between; align-items: center;
+            background: transparent; border: none; color: #fff;
+            padding: 10px 15px; border-radius: 12px;
+            cursor: pointer; transition: 0.2s; font-family: 'Cairo', sans-serif;
+        }
+
+        .filter-option:hover { background: rgba(255,255,255,0.1); }
+        
+        .filter-option.active { background: var(--primary-accent); color: #000; font-weight: bold; }
+
+        .count-badge {
+            background: rgba(255,255,255,0.2); font-size: 0.75rem;
+            padding: 2px 8px; border-radius: 10px;
+        }
+        .filter-option.active .count-badge { background: rgba(0,0,0,0.2); color: #fff; }
+
+        /* 2. Search Bar */
+        .search-container { flex-grow: 1; position: relative; }
+        .search-input {
+            width: 100%; padding: 16px 50px 16px 20px; border-radius: 50px;
+            border: 2px solid var(--border-color); background: rgba(0,0,0,0.3); color: #fff;
+            font-size: 1.1rem; outline: none; transition: 0.3s;
+        }
+        .search-input:focus { border-color: var(--primary-accent); box-shadow: 0 0 15px rgba(0, 210, 255, 0.15); }
+        .search-icon { position: absolute; right: 25px; top: 50%; transform: translateY(-50%); color: #aaa; }
+
+
+        /* =========================================
+           Grid Layout
+           ========================================= */
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; width: 100%; flex: 1; }
+
+        .apps-grid {
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+
+        /* App Card */
+        .app-card {
+            background: var(--card-bg); border: 1px solid var(--border-color);
+            border-radius: 20px; padding: 25px 20px; text-align: center;
+            text-decoration: none; color: #fff; transition: 0.4s;
+            display: flex; flex-direction: column; align-items: center;
+            position: relative; overflow: hidden;
+        }
+        .app-card:hover { transform: translateY(-7px); border-color: var(--primary-accent); box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
+
+        .card-icon {
+            width: 90px; height: 90px; border-radius: 20px; margin-bottom: 15px;
+            object-fit: cover; box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            border: 2px solid rgba(255,255,255,0.05);
+        }
+        
+        .card-title { font-size: 1.1rem; font-weight: 700; margin-bottom: 8px; color: #fff; }
+        
+        /* Type Badge */
+        .card-type {
+            font-size: 0.85rem; color: #aaa; margin-bottom: 15px;
+            background: rgba(0,0,0,0.3); padding: 4px 12px; border-radius: 20px;
+            display: flex; align-items: center; gap: 6px; border: 1px solid var(--border-color);
+        }
+        .card-type i { font-size: 1rem; }
+        .type-android i { color: #a4c639; } 
+        .type-desktop i { color: #00d2ff; } 
+
+        .btn-view {
+            margin-top: auto; padding: 8px 25px; border-radius: 20px;
+            background: rgba(255,255,255,0.05); font-size: 0.9rem;
+            color: var(--primary-accent); border: 1px solid rgba(255,255,255,0.1);
+        }
+        .app-card:hover .btn-view { background: var(--primary-accent); color: #000; }
+
+        .no-results { text-align: center; padding: 50px; color: #888; display: none; width: 100%; grid-column: 1/-1; }
+        
+        footer { margin-top: auto; padding: 30px; text-align: center; border-top: 1px solid var(--border-color); background: rgba(0,0,0,0.4); }
+        .developer-link { color: var(--primary-accent); text-decoration: none; font-weight: bold; }
+        /* كود الأنيميشن المهم جداً لظهور الكروت */
+@keyframes fadeIn {
+    from { 
+        opacity: 0; 
+        transform: translateY(20px); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0); 
+    }
+}

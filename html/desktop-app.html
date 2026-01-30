@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تحميل البرنامج - Desktop</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/desktop-app.css">
+</head>
+<body>
+
+    <header>
+        <div class="brand">Ahmed Ramadan Apps</div>
+        <a href="https://ahm3dramad3n.github.io/portfolio/en/" target="_blank" class="nav-link">
+            <i class="fa-solid fa-user-tie"></i>
+            <span>About Developer</span>
+        </a>
+    </header>
+
+    <div class="container">
+        
+        <div class="app-header">
+            <img src="" alt="App Icon" class="app-icon" id="appIcon">
+            <h1 id="app-title">...</h1>
+            <p class="desc" id="app-desc">...</p>
+            
+            <a href="#" class="btn-download">
+                <i class="fa-brands fa-windows"></i>
+                تحميل للكمبيوتر
+            </a>
+        </div>
+
+        <div class="laptop-wrapper">
+            <div class="laptop-screen">
+                <div class="slider-wrapper" id="slider">
+                    </div>
+            </div>
+            
+            <div class="laptop-base"></div>
+
+            <button class="slider-btn prev-btn" onclick="moveSlide(-1)">&#10094;</button>
+            <button class="slider-btn next-btn" onclick="moveSlide(1)">&#10095;</button>
+        </div>
+
+        <div class="dots" id="dots-container"></div>
+
+        <div class="features-grid" id="featuresGrid"></div>
+
+    </div>
+
+    <footer>
+        <p>جميع الحقوق محفوظة © 2024 للمطور <strong>أحمد رمضان</strong></p>
+        <p style="margin-top: 10px; font-size: 0.9rem; opacity: 0.7;">
+            للتعرف على المزيد من أعمالي، تفضل بزيارة 
+            <a href="https://ahm3dramad3n.github.io/portfolio/en/" target="_blank" class="developer-link">معرض الأعمال (Portfolio)</a>
+        </p>
+    </footer>
+
+    <script src="../js/desktop-app.js"></script>
+</body>
+</html>

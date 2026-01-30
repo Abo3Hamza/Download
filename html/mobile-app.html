@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تحميل التطبيق</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <link rel="stylesheet" href="../css/mobile-app.css">
+</head>
+<body>
+
+    <header>
+        <div class="brand">Ahmed Ramadan Apps</div>
+        <a href="https://ahm3dramad3n.github.io/portfolio/en/" target="_blank" class="nav-link">
+            <i class="fa-solid fa-user-tie"></i>
+            <span>About Developer</span>
+        </a>
+    </header>
+
+    <div class="container">
+        
+        <div class="app-header">
+            <img src="" alt="App Icon" class="app-icon" id="appIcon">
+            
+            <h1 id="app-title">جاري التحميل...</h1> 
+            <p class="desc" id="app-desc">
+                </p>
+            
+            <a href="#" class="btn-download">
+                <i class="fa-brands fa-android"></i>
+                تحميل APK
+            </a>
+        </div>
+
+        <div class="view-switch-container">
+            <i class="fa-solid fa-mobile-screen switch-icon active" id="mobileIcon"></i>
+            <label class="switch">
+                <input type="checkbox" id="deviceSwitch">
+                <span class="slider-switch"></span>
+            </label>
+            <i class="fa-solid fa-tablet-screen-button switch-icon" id="tabletIcon"></i>
+        </div>
+
+        <div class="phone-display-wrapper" style="position: relative; width: fit-content; margin: 0 auto 50px;">
+            
+            <div class="phone-frame-container" id="frameContainer" style="margin: 0;"> 
+                <div class="slider-wrapper" id="slider">
+                    </div> 
+            </div>
+            
+            <button class="slider-btn prev-btn" onclick="moveSlide(-1)">&#10094;</button>
+            <button class="slider-btn next-btn" onclick="moveSlide(1)">&#10095;</button>
+        </div>
+        
+        <div class="dots" id="dots-container"></div>
+
+        </div>
+
+        <div class="features-grid" id="featuresGrid"></div>
+
+    <footer>
+        <p>جميع الحقوق محفوظة © 2024 للمطور <strong>أحمد رمضان</strong></p>
+        <p style="margin-top: 10px; font-size: 0.9rem; opacity: 0.7;">
+            للتعرف على المزيد من أعمالي، تفضل بزيارة 
+            <a href="https://ahm3dramad3n.github.io/portfolio/en/" target="_blank" class="developer-link">معرض الأعمال (Portfolio)</a>
+        </p>
+    </footer>
+
+    <script src="../js/mobile-app.js"></script>
+</body>
+</html>

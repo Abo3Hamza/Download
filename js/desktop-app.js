@@ -1,0 +1,121 @@
+// js/desktop-app.js
+
+document.addEventListener('DOMContentLoaded', () => {
+    const storedData = localStorage.getItem('selectedApp');
+    if (storedData) {
+        const currentApp = JSON.parse(storedData);
+        initDesktopPage(currentApp); // بنبعت البيانات جاهزة
+    } else {
+        console.log('No app data found in localStorage.');
+        window.location.href = '../index.html'; // لو مفيش بيانات رجعه للرئيسية
+    }
+});
+
+function initDesktopPage(currentApp) {
+    // تعيين اللون الأساسي
+    const primaryColor = currentApp.primaryColor || '#4c98ca';
+    document.documentElement.style.setProperty('--primary-color', primaryColor);
+
+    // 1. تعبئة البيانات
+    document.title = `تحميل ${currentApp.name}`;
+    document.getElementById('app-title').textContent = currentApp.name;
+    document.getElementById('app-desc').textContent = currentApp.description;
+    
+    const iconImg = document.getElementById('appIcon');
+    if(iconImg) iconImg.src = currentApp.downloadLink.replace('desktop.exe', 'icon.png');
+    
+    // رابط التحميل
+    const downloadBtn = document.querySelector('.btn-download');
+    if(downloadBtn) {
+        downloadBtn.href = currentApp.downloadLink;
+    }
+
+    // 2. إعداد سلايدر اللابتوب
+    const sliderWrapper = document.getElementById('slider');
+    let slidesCount = currentApp.screenshotsCount || 3;
+
+    sliderWrapper.innerHTML = '';
+    for (let i = 1; i <= slidesCount; i++) {
+        const img = document.createElement('img');
+        img.src = currentApp.downloadLink.replace('desktop.exe', `screen${i}.jpg`);
+        img.className = `slide ${i === 1 ? 'active' : ''}`;
+        sliderWrapper.appendChild(img);
+    }
+
+    initDots();
+    setupSliderControls();
+
+    const featuresGrid = document.getElementById('featuresGrid');
+    const featuresCount = currentApp.featuresCount || 3;
+    featuresGrid.innerHTML = '';
+    for (let i = 0; i < featuresCount; i++) {
+        const feature = currentApp.features[i];
+        const featureDiv = document.createElement('div');
+        featureDiv.className = 'feature-card';
+        if (feature) {
+            
+            featureDiv.innerHTML = `
+                <h3><i class="${feature.icon} feature-icon"></i>${feature.title}</h3>
+                <p>${feature.desc}</p>
+            `;
+        }
+        else {
+            featureDiv.innerHTML = `
+                <h3><i class="fa-solid fa-star feature-icon"></i>ميزة قادمة</h3>
+                <p>سيتم إضافة المزيد من الميزات قريباً.</p>
+            `;
+        }
+        featuresGrid.appendChild(featureDiv);
+    }
+}
+
+// دوال التحكم (نفس الدوال)
+function setupSliderControls() {
+    let currentSlide = 0;
+    
+    window.moveSlide = function(n) {
+        const slides = document.querySelectorAll('.slide');
+        if(slides.length === 0) return;
+        
+        slides[currentSlide].classList.remove('active');
+        updateDots(currentSlide, false);
+
+        currentSlide = (currentSlide + n + slides.length) % slides.length;
+        
+        slides[currentSlide].classList.add('active');
+        updateDots(currentSlide, true);
+    };
+
+    window.setSlide = function(n) {
+        const slides = document.querySelectorAll('.slide');
+        if(slides.length === 0) return;
+
+        slides[currentSlide].classList.remove('active');
+        updateDots(currentSlide, false);
+        currentSlide = n;
+        slides[currentSlide].classList.add('active');
+        updateDots(currentSlide, true);
+    };
+}
+
+function initDots() {
+    const dotsContainer = document.getElementById('dots-container');
+    const slides = document.querySelectorAll('.slide');
+    if(!dotsContainer) return;
+    dotsContainer.innerHTML = ''; 
+
+    slides.forEach((_, idx) => {
+        const dot = document.createElement('div');
+        dot.classList.add('dot');
+        if (idx === 0) dot.classList.add('active');
+        dot.addEventListener('click', () => window.setSlide(idx));
+        dotsContainer.appendChild(dot);
+    });
+}
+
+function updateDots(index, isActive) {
+    const dots = document.querySelectorAll('.dot');
+    if(dots[index]) {
+        isActive ? dots[index].classList.add('active') : dots[index].classList.remove('active');
+    }
+}

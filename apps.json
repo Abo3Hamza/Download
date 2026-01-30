@@ -1,0 +1,173 @@
+[
+  {
+    "name": "Crypto Messenger",
+    "type": "android",
+    "description": "أداتك الشخصية لتشفير النصوص والملفات بأقصى درجات الحماية. اكتب رسالتك، قم بتشفيرها، ثم شارك الكود المشفر عبر واتساب أو ماسنجر بأمان تام. لا يمكن لأحد قراءة الرسالة إلا من يملك التطبيق ومفتاح فك التشفير.",
+    "downloadLink": "https://github.com/Abo3Hamza/Download/releases/download/Crypto_Messenger/android.apk",
+    "screenshotsCount": 4,
+    "featuresCount": 4,
+    "primaryColor": "#1E88E5",
+    "features": [
+      {
+        "icon": "fa-solid fa-share-nodes",
+        "title": " مشاركة خارجية",
+        "desc": "انسخ النص المشفر وأرسله عبر أي تطبيق محادثة (WhatsApp, Telegram) بأمان تام."
+      },
+      {
+        "icon": "fa-solid fa-file-shield",
+        "title": " تشفير الملفات والنصوص",
+        "desc": "حوّل أي نص أو ملف إلى كود مشفر غير قابل للقراءة لحماية خصوصيتك."
+      },
+      {
+        "icon": "fa-solid fa-address-book",
+        "title": " إدارة جهات الاتصال",
+        "desc": "سجل جهات اتصالك محلياً لتسهيل عملية التشفير وفكه مع الأشخاص الموثوقين."
+      },
+      {
+        "icon": "fa-solid fa-lock",
+        "title": " أمان عالي",
+        "desc": "يحمي رسائلك باستخدام تقنيات التشفير المتقدمة."
+      }
+    ]
+  },
+  {
+    "name": "Snake Game",
+    "type": "desktop",
+    "description": "لعبة الثعبان الكلاسيكية مع رسومات محسنة وتجربة لعب سلسة على الكمبيوتر.",
+    "downloadLink": "https://github.com/Abo3Hamza/Download/releases/download/Snake_Game/desktop.exe",
+    "screenshotsCount": 2,
+    "featuresCount": 4,
+    "primaryColor": "#4CAF50",
+    "features": [
+      {
+        "icon": "fa-solid fa-gamepad",
+        "title": " تحكم سلس",
+        "desc": "استمتع بتحكم سهل وسلس في حركة الثعبان باستخدام لوحة المفاتيح."
+      },
+      {
+        "icon": "fa-solid fa-trophy",
+        "title": " مستويات متعددة",
+        "desc": "تحدى نفسك عبر مستويات مختلفة تزداد صعوبة مع التقدم."
+      },
+      {
+        "icon": "fa-solid fa-palette",
+        "title": " رسومات محسنة",
+        "desc": "استمتع بتجربة بصرية جذابة مع رسومات محسنة وألوان زاهية."
+      },
+      {
+        "icon": "fa-solid fa-palette",
+        "title": "تغيير الالوان",
+        "desc": "قم بتخصيص لون الثعبان حسب رغبتك."
+      }
+    ]
+  },
+  {
+    "name": "YouTube Web",
+    "type": "android",
+    "description": "نسخة خفيفة ومحسنة من يوتيوب، تمنحك تجربة مشاهدة سلسة وتعمل كتطبيق مستقل بعيداً عن تعقيدات المتصفح.",
+    "downloadLink": "https://github.com/Abo3Hamza/Download/releases/download/YouTube_Web/android.apk",
+    "screenshotsCount": 3,
+    "featuresCount": 3,
+    "primaryColor": "#FF0000",
+    "features": [
+      {
+        "icon": "fa-brands fa-youtube",
+        "title": " تجربة أصلية",
+        "desc": "نفس واجهة وتجربة يوتيوب التي تعودت عليها تماماً."
+      },
+      {
+        "icon": "fa-solid fa-bolt",
+        "title": " خفيف وسريع",
+        "desc": "يعمل بكفاءة ولا يستهلك موارد الجهاز أو البطارية."
+      },
+      {
+        "icon": "fa-solid fa-clone",
+        "title": " حساب إضافي",
+        "desc": "إمكانية فتح حساب يوتيوب ثاني بجانب التطبيق الأصلي."
+      }
+    ]
+  },
+  {
+    "name": "Simple Calculator",
+    "type": "android",
+    "description": "آلة حاسبة ذكية بتصميم عصري وألوان مريحة للعين، تدعم العمليات الحسابية اليومية بدقة وسرعة.",
+    "downloadLink": "https://github.com/Abo3Hamza/Download/releases/download/Simple_Calculator/android.apk",
+    "screenshotsCount": 3,
+    "featuresCount": 3,
+    "primaryColor": "#607D8B",
+    "features": [
+      {
+        "icon": "fa-solid fa-calculator",
+        "title": " دقة عالية",
+        "desc": "حسابات دقيقة جداً للعمليات البسيطة والمعقدة."
+      },
+      {
+        "icon": "fa-solid fa-eye",
+        "title": " مريح للعين",
+        "desc": "واجهة مستخدم نظيفة وألوان هادئة تدعم الوضع الليلي."
+      },
+      {
+        "icon": "fa-solid fa-clock-rotate-left",
+        "title": " سجل العمليات",
+        "desc": "احتفظ بتاريخ عملياتك الحسابية للرجوع إليها لاحقاً."
+      }
+    ]
+  },
+  {
+    "name": "Online Games",
+    "type": "android",
+    "description": "مكتبة ألعاب ضخمة في تطبيق واحد! استمتع بمجموعة متنوعة من الألعاب الخفيفة والممتعة دون الحاجة لتحميل كل لعبة على حدة.",
+    "downloadLink": "https://github.com/Abo3Hamza/Download/releases/download/Online_Games/android.apk",
+    "screenshotsCount": 4,
+    "featuresCount": 4,
+    "primaryColor": "#9C27B0",
+    "features": [
+      {
+        "icon": "fa-solid fa-gamepad",
+        "title": " ألعاب متنوعة",
+        "desc": "مجموعة واسعة من ألعاب الألغاز، الأكشن، والسباقات."
+      },
+      {
+        "icon": "fa-solid fa-download",
+        "title": " بدون تحميل",
+        "desc": "العب مباشرة وتوفر مساحة تخزين هاتفك."
+      },
+      {
+        "icon": "fa-solid fa-rocket",
+        "title": " أداء سريع",
+        "desc": "ألعاب خفيفة تعمل بسلاسة على جميع الهواتف."
+      },
+      {
+        "icon": "fa-solid fa-users",
+        "title": " مناسب للجميع",
+        "desc": "ألعاب مسلية مناسبة لجميع الأعمار."
+      }
+    ]
+  },
+  {
+    "name": "Tasbih App",
+    "type": "android",
+    "description": "مسبحة إلكترونية ذكية تساعدك على ذكر الله في أي وقت ومكان، مع ميزة حفظ العدد والاهتزاز للتنبيه.",
+    "downloadLink": "https://github.com/Abo3Hamza/Download/releases/download/Tasbih/android.apk",
+    "screenshotsCount": 3,
+    "featuresCount": 3,
+    "primaryColor": "#009688",
+    "features": [
+      {
+        "icon": "fa-solid fa-hand-holding-heart",
+        "title": " عداد ذكي",
+        "desc": "يحفظ آخر عدد وصلت إليه حتى بعد إغلاق التطبيق."
+      },
+      {
+        "icon": "fa-solid fa-mobile-screen-button",
+        "title": " اهتزاز تفاعلي",
+        "desc": "اهتزاز خفيف عند التسبيح لتشعر بكل ضغطة."
+      },
+      {
+        "icon": "fa-solid fa-moon",
+        "title": " وضع ليلي",
+        "desc": "تصميم مريح للعين أثناء الاستخدام في الظلام."
+      }
+    ]
+  }
+]
