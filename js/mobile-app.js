@@ -1,14 +1,26 @@
 // js/mobile-app.js
 
 document.addEventListener('DOMContentLoaded', () => {
-    const storedData = localStorage.getItem('selectedApp');
-    if (storedData) {
-        const currentApp = JSON.parse(storedData);
-        initMobilePage(currentApp); // بنبعت البيانات جاهزة
-    } else {
-        console.log('No app data found in localStorage.');
-        window.location.href = '../index.html'; // لو مفيش بيانات رجعه للرئيسية
+    const params = new URLSearchParams(window.location.search);
+    const appId = params.get('id');
+
+    if (!appId) {
+        // لو مفيش ID في الرابط، رجعه للرئيسية
+        window.location.href = '../index.html';
+        return;
     }
+
+    fetch('../apps.json')
+        .then(response => response.json())
+        .then(apps => {
+            const currentApp = apps.find(app => app.name === appId);
+            if (currentApp) {
+                initMobilePage(currentApp); // لقيناه! اعرض بياناته
+            } else {
+                document.body.innerHTML = "<h2 style='text-align:center; color:white; margin-top:50px;'>عفواً، التطبيق غير موجود</h2>";
+            }
+        })
+        .catch(error => console.error('Error:', error));
 });
 
 function initMobilePage(currentApp) {

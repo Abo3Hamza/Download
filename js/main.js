@@ -49,13 +49,14 @@ function initStorePage(apps) {
         noResults.style.display = 'none';
 
         appsToRender.forEach((app, index) => {
-            const card = document.createElement('div');
+            const card = document.createElement('a');
             card.style.cursor = 'pointer'; // عشان الماوس يبقى شكل يد
             card.className = 'app-card';
             
             // تحديد الرابط بناءً على الهيكلة الجديدة
             // بما أننا في index.html، ندخل مجلد html للوصول للصفحات
             const targetPage = app.type === 'desktop' ? 'html/desktop-app.html' : 'html/mobile-app.html';
+            card.href = `${targetPage}?id=${app.name}`; // الرابط المخصص
             
             const isDesktop = app.type === 'desktop';
             const typeIcon = isDesktop ? '<i class="fa-brands fa-windows"></i>' : '<i class="fa-brands fa-android"></i>';
@@ -78,10 +79,6 @@ function initStorePage(apps) {
                 </div>
                 <div class="btn-view">عرض التفاصيل</div>
             `;
-
-            card.addEventListener('click', () => {
-                openAppDetails(app);
-            });
 
             grid.appendChild(card);
         });
@@ -132,10 +129,4 @@ function updateFilterCounts(apps) {
     document.getElementById('count-all').textContent = apps.length;
     document.getElementById('count-android').textContent = apps.filter(a => a.type === 'android').length;
     document.getElementById('count-desktop').textContent = apps.filter(a => a.type === 'desktop').length;
-}
-
-function openAppDetails(appData) {
-    localStorage.setItem('selectedApp', JSON.stringify(appData));
-    const targetPage = appData.type === 'desktop' ? 'html/desktop-app.html' : 'html/mobile-app.html';
-    window.location.href = targetPage;
 }
