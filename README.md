@@ -49,13 +49,13 @@
 
 ```JSON
 {
-  "id": "unique-app-id",
   "name": "App Name",
-  "type": "android",
-  "folder": "FolderName",
+  "type": "android or desktop",
   "description": "وصف التطبيق هنا...",
   "downloadLink": "link-to-file",
   "screenshotsCount": 3,
+  "primaryColor": "# ثيم صفحه التحميل",
+  "featuresCount": 1,
   "features": [
     {
       "icon": "fa-solid fa-star",
