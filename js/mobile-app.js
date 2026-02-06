@@ -46,21 +46,57 @@ function initMobilePage(currentApp) {
     const sliderWrapper = document.getElementById('slider');
     let slidesCount = currentApp.screenshotsCount || 3;
     
+
     function buildSlides(isTabletMode = false) {
         sliderWrapper.innerHTML = '';
         const suffix = isTabletMode ? '-tablet' : ''; 
         
+        // تعريف عناصر التحكم لإخفائها عند الخطأ
+        const dotsContainer = document.getElementById('dots-container');
+        const prevBtn = document.querySelector('.prev-btn');
+        const nextBtn = document.querySelector('.next-btn');
+        
+        // إعادة إظهار الأزرار افتراضياً عند كل تشغيل
+        if(dotsContainer) dotsContainer.style.display = 'flex';
+        if(prevBtn) prevBtn.style.display = 'block';
+        if(nextBtn) nextBtn.style.display = 'block';
+
+        let errorShown = false; // متغير لمنع تكرار الرسالة
+
         for (let i = 1; i <= slidesCount; i++) {
             const img = document.createElement('img');
+            
             img.src = currentApp.downloadLink.replace('android.apk', `screen${suffix}${i}.jpg`);
             img.className = `slide ${i === 1 ? 'active' : ''}`;
             
             if(isTabletMode) {
-                img.onerror = function() { this.src = currentApp.downloadLink.replace('android.apk', `screen${i}.jpg`); };
+                img.onerror = function() { 
+                    if (!errorShown) {
+                        errorShown = true;
+
+                        sliderWrapper.innerHTML = ''; // إزالة الصور الفاشلة
+                                                const msgDiv = document.createElement('div');
+                        msgDiv.className = 'no-preview-msg';
+                        msgDiv.innerHTML = `
+                            <i class="fa-solid fa-tablet-screen-button"></i>
+                            <p>عفواً، المعاينة غير متاحة</p>
+                            <p style="font-size: 0.9rem; margin-top:5px;">هذا التطبيق غير مصمم للعرض في وضع التابلت</p>
+                        `;
+                        sliderWrapper.appendChild(msgDiv);
+
+                        // 3. إخفاء أزرار التحكم والنقاط للحفاظ على الشكل
+                        if(dotsContainer) dotsContainer.style.display = 'none';
+                        if(prevBtn) prevBtn.style.display = 'none';
+                        if(nextBtn) nextBtn.style.display = 'none';
+                    }
+                };
             }
+            
             sliderWrapper.appendChild(img);
         }
-        initDots();
+        
+        // تهيئة النقاط فقط إذا لم يحدث خطأ
+        if (!errorShown) initDots();
     }
 
     buildSlides(false); // البداية وضع الموبايل

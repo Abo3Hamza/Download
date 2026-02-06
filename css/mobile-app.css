@@ -195,6 +195,37 @@
             .next-btn { right: -15px; font-size: 2rem; z-index: 30; }
         }
 
+        /* رسالة عدم توفر صور التابلت */
+        .no-preview-msg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: #1e1e1e; /* لون خلفية يتناسب مع الدارك مود */
+            color: #888;
+            text-align: center;
+            padding: 20px;
+            border-radius: 10px;
+            z-index: 10;
+        }
+
+        .no-preview-msg i {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            opacity: 0.5;
+        }
+
+        .no-preview-msg p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin: 0;
+        }
+
         /* Dots */
         .dots {
             display: flex;
