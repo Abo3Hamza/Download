@@ -52,9 +52,7 @@ function initStorePage(apps) {
             const card = document.createElement('a');
             card.style.cursor = 'pointer'; // عشان الماوس يبقى شكل يد
             card.className = 'app-card';
-            
-            // تحديد الرابط بناءً على الهيكلة الجديدة
-            // بما أننا في index.html، ندخل مجلد html للوصول للصفحات
+        
             const targetPage = app.type === 'desktop' ? 'html/desktop-app.html' : 'html/mobile-app.html';
             card.href = `${targetPage}?id=${app.name}`; // الرابط المخصص
             
@@ -69,10 +67,10 @@ function initStorePage(apps) {
             card.style.opacity = '0'; 
 
             const downloadLink = app.downloadLink || '#';
-            const imageLink = downloadLink.replace(`/${downloadfile}`, '/icon.png');
+            const imageLink = downloadLink.replace(`/${downloadfile}`, '/icon.jpg');
 
             card.innerHTML = `
-                <img src="${imageLink}" class="card-icon" alt="${app.name}" onerror="this.src='https://via.placeholder.com/150/333/fff?text=App'">
+                <img src="${imageLink}" loading="lazy" class="card-icon" alt="${app.name}" onerror="this.src='https://via.placeholder.com/150/333/fff?text=App'">
                 <div class="card-title">${app.name}</div>
                 <div class="card-type ${typeClass}">
                     ${typeIcon} <span>${typeName}</span>

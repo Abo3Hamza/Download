@@ -34,7 +34,7 @@ function initDesktopPage(currentApp) {
     document.getElementById('app-desc').textContent = currentApp.description;
     
     const iconImg = document.getElementById('appIcon');
-    if(iconImg) iconImg.src = currentApp.downloadLink.replace('desktop.exe', 'icon.png');
+    if(iconImg) iconImg.src = currentApp.downloadLink.replace('desktop.exe', 'icon.jpg');
     
     // رابط التحميل
     const downloadBtn = document.querySelector('.btn-download');

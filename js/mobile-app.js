@@ -34,7 +34,7 @@ function initMobilePage(currentApp) {
     document.getElementById('app-desc').textContent = currentApp.description;
     
     const iconImg = document.getElementById('appIcon');
-    if(iconImg) iconImg.src = currentApp.downloadLink.replace('android.apk', 'icon.png');
+    if(iconImg) iconImg.src = currentApp.downloadLink.replace('android.apk', 'icon.jpg');
     
     // رابط التحميل
     const downloadBtn = document.querySelector('.btn-download');
