@@ -1,7 +1,7 @@
 [
    {
     "name": "DVLD - Driving License Management",
-    "type": "Windows Forms Application",
+    "type": "desktop",
     "description": "المنظومة المتكاملة لإدارة تراخيص القيادة والمركبات؛ صُممت بأعلى معايير الدقة لتنظيم ورقمنة كافة عمليات منح التراخيص. يوفر النظام بيئة عمل احترافية لإدارة الطلبات، إجراء الاختبارات (البصرية، النظرية، والعملية)، وإصدار الرخص بمختلف فئاتها السبع، مع ضمان الامتثال التام للمعايير القانونية والسلامة المرورية.",
     "downloadLink": "https://github.com/Abo3Hamza/Download/releases/download/DVLD/desktop.exe",
     "screenshotsCount": 5,
